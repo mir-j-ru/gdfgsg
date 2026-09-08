@@ -2,7 +2,6 @@ import telebot
 import requests
 from datetime import datetime
 from telebot import types
-from scheduler import start_scheduler
 from dotenv import load_dotenv
 
 TOKEN = os.getenv("BOT_TOKEN")
