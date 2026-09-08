@@ -3,8 +3,9 @@ import requests
 from datetime import datetime
 from telebot import types
 from scheduler import start_scheduler
+from dotenv import load_dotenv
 
-TOKEN = "8652981939:AAGriJZvqrfiI73bFWLOKb5vUcSlHfxM8nc"
+TOKEN = os.getenv("BOT_TOKEN")
 bot = telebot.TeleBot(TOKEN)
 SERVER_URL = "http://127.0.0.1:8080"
 ADMIN_ID = 6154565499
