@@ -48,6 +48,7 @@ def get_review_text_slot(message):
 def get_rating_slot(message):
     chat_id = message.chat.id
     if message.text == "назад":
+        bot.reply_to(message, "вы вышли из добавления комплектации") 
         return
 
     user_data[chat_id]['status'] = message.text
@@ -59,7 +60,7 @@ def get_rating_slot(message):
     response = requests.get(f"https://server-for-mir-j-production.up.railway.app/add_warehouse?name={user_data[chat_id]['start_time']}&quantity=10&category={user_data[chat_id]['end_time']}&number={user_data[chat_id]['status']}")
     if response.status_code == 200:
         bot.reply_to(message,
-                     f"время добавлено!\n🕟начало - {data['start_time']}\n🕟конец - {data['end_time']}\nстатус - {data['status']}\n")
+                     f"время добавлено!\n🕟название - {data['start_time']}\n🕟категория - {data['end_time']}\nномер - {data['status']}\n")
     else:
         bot.reply_to(message, "ошибка сервера")
         return
