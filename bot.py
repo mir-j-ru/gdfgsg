@@ -54,7 +54,7 @@ def get_rating_slot(message):
     data = user_data[chat_id]
 
 
-    response = requests.get(f"https://server-for-mir-j-production.up.railway.app/get_waregouse?name={user_data[chat_id]['start_time']}&quantity=10&category={user_data[chat_id]['end_time']}&number={user_data[chat_id]['status']}")
+    response = requests.get(f"https://server-for-mir-j-production.up.railway.app/add_warehouse?name={user_data[chat_id]['start_time']}&quantity=10&category={user_data[chat_id]['end_time']}&number={user_data[chat_id]['status']}")
     if response.status_code == 200:
         bot.reply_to(message,
                      f"время добавлено!\n🕟начало - {data['start_time']}\n🕟конец - {data['end_time']}\nстатус - {data['status']}\n")
