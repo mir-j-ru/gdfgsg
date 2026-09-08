@@ -47,6 +47,8 @@ def get_review_text_slot(message):
 
 def get_rating_slot(message):
     chat_id = message.chat.id
+    if message.text == "назад":
+        return
 
     user_data[chat_id]['status'] = message.text
 
