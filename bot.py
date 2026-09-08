@@ -3,6 +3,7 @@ import requests
 from datetime import datetime
 from telebot import types
 from dotenv import load_dotenv
+import os
 
 TOKEN = os.getenv("BOT_TOKEN")
 bot = telebot.TeleBot(TOKEN)
