@@ -23,26 +23,26 @@ def start(message):
 
 user_data = {}
 
-@bot.message_handler(func=lambda message: message.text == '➕ добавить слот')
+@bot.message_handler(func=lambda message: message.text == '➕ добавить копмлектацию')
 def start_slot(message):
     chat_id = message.chat.id
     if chat_id != ADMIN_ID:
         bot.reply_to(message, "вы не являетесь администратором")
         return
     user_data[message.chat.id] = {}
-    bot.reply_to(message, "📝 Введите время начала:")
+    bot.reply_to(message, "📝 Введите название:")
     bot.register_next_step_handler(message, get_master_name_slot)
 
 def get_master_name_slot(message):
     chat_id = message.chat.id
     user_data[chat_id]['start_time'] = message.text if message.text != '-' else 'Не указан'
-    bot.reply_to(message, "введите время окончания:")
+    bot.reply_to(message, "введите категори:")
     bot.register_next_step_handler(message, get_review_text_slot)
 
 def get_review_text_slot(message):
     chat_id = message.chat.id
     user_data[chat_id]['end_time'] = message.text
-    bot.reply_to(message, "введите статус:")
+    bot.reply_to(message, "введите номер:")
     bot.register_next_step_handler(message, get_rating_slot)
 
 def get_rating_slot(message):
