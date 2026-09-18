@@ -7,7 +7,7 @@ import os
 
 TOKEN = os.getenv("BOT_TOKEN")
 bot = telebot.TeleBot(TOKEN)
-SERVER_URL = "http://127.0.0.1:8080"
+SERVER_URL = "http://217.144.103.23"
 ADMIN_ID = 6154565499
 
 
